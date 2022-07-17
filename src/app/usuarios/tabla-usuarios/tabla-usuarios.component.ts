@@ -1,9 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { RestService } from 'src/app/rest.service';
 import { Subject } from 'rxjs';
-
-import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-tabla-usuarios',
@@ -29,7 +26,6 @@ export class TablaUsuariosComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy: cleaning up...');
     this.dtTrigger.unsubscribe();
   }
 
@@ -39,7 +35,7 @@ export class TablaUsuariosComponent implements OnDestroy, OnInit {
     ).subscribe((respuesta) => {
       console.log('respuesta:', respuesta);
       this.listaUsuarios = respuesta;
-      //this.dtTrigger.next();
+      this.dtTrigger.next(respuesta);
     });
   }
 }
