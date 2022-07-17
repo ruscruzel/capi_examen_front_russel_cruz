@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, UsuariosModule],
+  imports: [BrowserModule, HttpClientModule, UsuariosModule, DataTablesModule],
   providers: [],
   bootstrap: [AppComponent],
 })

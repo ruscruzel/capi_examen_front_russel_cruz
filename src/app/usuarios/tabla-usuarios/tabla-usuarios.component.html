@@ -1,1 +1,25 @@
-<p>tabla-usuarios works!</p>
+<div class="container">
+  <table datatable class="table table-striped row-border hover">
+    <thead>
+      <tr>
+        <th>Clave</th>
+        <th>Nombre de usuario</th>
+        <th>Fecha de nacimiento</th>
+        <th>Edad</th>
+        <th>Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of listaUsuarios">
+        <td>{{ u.id }}</td>
+        <td>{{ u.name }}</td>
+        <td>{{ u.fecha_nacimiento }}</td>
+        <td>{{ u.edad }}</td>
+        <td>
+          Domicilio {{ u.domicilio }} no. ext. {{ u.nuero_exterior }} colonia
+          {{ u.nuero_exterior }} cp {{ u.cp }} ciudad {{ u.ciudad }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
