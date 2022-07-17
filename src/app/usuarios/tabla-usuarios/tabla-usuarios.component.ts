@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RestService } from 'src/app/rest.service';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tabla-usuarios',
@@ -30,12 +31,12 @@ export class TablaUsuariosComponent implements OnDestroy, OnInit {
   }
 
   public cargarData() {
-    this.RestService.get(
-      'http://capiexamenbackrusselcruz.test/users'
-    ).subscribe((respuesta) => {
-      console.log('respuesta:', respuesta);
-      this.listaUsuarios = respuesta;
-      this.dtTrigger.next(respuesta);
-    });
+    this.RestService.get(environment.serverURL + 'users').subscribe(
+      (respuesta) => {
+        console.log('respuesta:', respuesta);
+        this.listaUsuarios = respuesta;
+        this.dtTrigger.next(respuesta);
+      }
+    );
   }
 }
